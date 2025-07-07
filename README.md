@@ -32,9 +32,9 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 
 ## 🧾 My Resume 
 
-- ✅ ISTQB Certified | 5+ years QA experience | Hands-on with Python, Pytest, REST API, Allure, CI/CD, AWS, Kubernetes.
+- ✅ ISTQB Certified | 5+ years QA experience in Web testing| API Automation | Hands-on with Python, Pytest, REST API, microservises, Allure, CI/CD, AWS, Kubernetes.
 
-[📄 View Resume](./resume.txt)
+[📄 View Resume](https://github.com/vpaikina/qa-portfolio/blob/main/resume.md)
 
 ---
 
