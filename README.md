@@ -13,7 +13,7 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 > ✅ Realistic CRUD test suite for a local JSON-based REST API.
 
 - 🔍 Fully automated API tests using **Python**, **Pytest**, **Pydantic**, **Faker**, and **Allure**
-- 📦 Includes **data generation**, **JSON validation**, **e2e scenarios**, and **resource cleanup**
+- 📦 Includes **data generation**, **contract validation**, **e2e scenarios**, and **resource cleanup**
 - ⚙️ Configured with **GitHub Actions CI** and beautiful HTML reports
 - 📘 Follows **best practices** and uses a clean, modular folder structure
 
@@ -48,13 +48,41 @@ Here’s an example of an Allure test reports generated from my API automation p
 
 ---
 
-## ⚙️ Tech Stack Highlights
+## 🚀 Tech Stack
 
-- **Automation:** Python, Pytest, Requests, Pydantic, SQL, Swagger, Postman, JSON Schema
-- **Test levels:** WEB UI, REST API, Integration, End-to-End Testing
-- **CI/CD:** GitHub Actions, GitLab CI, Docker
-- **Manual QA:** Bug reporting, exploratory testing, UX analysis, test design techniques
-- **Agile-ready:** Scrum, SAFe, collaborative delivery with developers and stakeholders
+### 🔹 Programming & Automation Tools
+![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pytest](https://img.shields.io/badge/Pytest-3776AB?style=for-the-badge&logo=pytest&logoColor=white)
+![Requests](https://img.shields.io/badge/Requests-005571?style=for-the-badge&logo=python&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-158EB5?style=for-the-badge&logo=python&logoColor=white)
+![JSON Schema](https://img.shields.io/badge/JSON--Schema-5E5C5C?style=for-the-badge&logo=json&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+### ☁️ Cloud & DevOps
+![GitHub Actions](https://img.shields.io/badge/GitHub--Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![OpenShift](https://img.shields.io/badge/OpenShift-E00B1C?style=for-the-badge&logo=redhatopenshift&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+
+### 🗃️ Data & API Tools
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sqlite&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![ElasticSearch](https://img.shields.io/badge/ElasticSearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+
+### 📊 Reporting & Monitoring
+![Allure](https://img.shields.io/badge/Allure-333333?style=for-the-badge&logo=allure&logoColor=white)
+![Coverage](https://img.shields.io/badge/Coverage-100%25-success?style=for-the-badge&logo=codecov&logoColor=white)
+
+### 📁 Test Management
+![Jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white)
+![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=for-the-badge&logo=confluence&logoColor=white)
+![Zephyr](https://img.shields.io/badge/Zephyr-233659?style=for-the-badge&logo=zephyr&logoColor=white)
+![XRay](https://img.shields.io/badge/XRay-68BC71?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjNjhCQzcxIi8+PC9zdmc+)
 
 ---
 
