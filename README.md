@@ -74,15 +74,13 @@ Here’s an example of an Allure test reports generated from my API automation p
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-### 📊 Reporting & Monitoring
-![Allure](https://img.shields.io/badge/Allure-333333?style=for-the-badge&logo=allure&logoColor=white)
-![Coverage](https://img.shields.io/badge/Coverage-100%25-success?style=for-the-badge&logo=codecov&logoColor=white)
 
-### 📁 Test Management
+### 📁 Test Management & reporting
 ![Jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white)
 ![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=for-the-badge&logo=confluence&logoColor=white)
 ![Zephyr](https://img.shields.io/badge/Zephyr-233659?style=for-the-badge&logo=zephyr&logoColor=white)
 ![XRay](https://img.shields.io/badge/XRay-68BC71?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjNjhCQzcxIi8+PC9zdmc+)
+![Allure](https://img.shields.io/badge/Allure-333333?style=for-the-badge&logo=allure&logoColor=white)
 
 ---
 
