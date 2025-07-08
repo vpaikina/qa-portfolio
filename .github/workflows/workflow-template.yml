@@ -1,0 +1,146 @@
+name: Workflow Template
+
+on:
+  workflow_call:
+    inputs:
+      test_marker:
+        required: false
+        type: string
+      artifact_name:
+        required: true
+        type: string
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: http://localhost:3000
+      EXTERNAL_API_URL: https://fakerestapi.azurewebsites.net/api/v1
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Allure CLI (latest)
+        run: |
+          wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+          tar -xzf allure-2.27.0.tgz
+          sudo mv allure-2.27.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          allure --version
+
+      - name: Install Docker Compose plugin
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ca-certificates curl gnupg
+          sudo install -m 0755 -d /etc/apt/keyrings
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+          sudo chmod a+r /etc/apt/keyrings/docker.gpg
+          echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+            $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+          sudo apt-get update
+          sudo apt-get install -y docker-compose-plugin
+
+      - name: Start json-server
+        run: docker compose up -d
+
+      - name: Clean Allure results but keep history
+        run: |
+          mkdir -p reports/allure-results/history
+          find reports/allure-results -type f ! -path "reports/allure-results/history/*" -delete || true
+          find reports/allure-results -type d -empty -delete || true
+
+      - name: Ensure allure-results exists
+        run: mkdir -p reports/allure-results
+
+      - name: Copy Allure categories.json
+        run: cp config/categories.json reports/allure-results/categories.json
+
+      - name: Wait for json-server
+        run: |
+          for i in {1..20}; do
+            if curl -s http://localhost:3000 > /dev/null; then
+              echo "json-server is up!"
+              break
+            fi
+            echo "Waiting for json-server..."
+            sleep 2
+          done
+          if [ $i -eq 20 ]; then
+          echo "json-server did not start in time"
+          exit 1
+          fi
+
+      - name: Run tests
+        run: |
+          if [ "${{ inputs.test_marker }}" != "" ]; then
+            pytest -m "${{ inputs.test_marker }}" --alluredir=reports/allure-results
+          else
+            pytest --alluredir=reports/allure-results
+          fi
+
+    #  - name: Load .env variables
+    #    run: |
+    #      export $(grep -v '^#' .env | xargs)
+    #      echo "BASE_URL=$BASE_URL" >> $GITHUB_ENV
+    #      echo "EXTERNAL_API_URL=$EXTERNAL_API_URL" >> $GITHUB_ENV
+
+    #  - name: Generate environment.properties for Allure
+    #    run: |
+    #      echo "ENVIRONMENT=github-ci" > reports/allure-results/environment.properties
+    #      echo "BASE_URL=${{ env.BASE_URL }}" >> reports/allure-results/environment.properties
+    #      echo "EXTERNAL_API_URL=${{ env.EXTERNAL_API_URL }}" >> reports/allure-results/environment.properties
+    #      echo "PYTHON_VERSION=$(python --version 2>&1)" >> reports/allure-results/environment.properties
+    #      echo "RUNNER_OS=${RUNNER_OS}" >> reports/allure-results/environment.properties
+
+      - name: Generate Allure environment.properties
+        run: |
+          cat <<EOF > reports/allure-results/environment.properties
+          ENVIRONMENT=github-ci
+          BASE_URL=${BASE_URL}
+          EXTERNAL_API_URL=${EXTERNAL_API_URL}
+          PYTHON_VERSION=$(python --version 2>&1)
+          RUNNER_OS=${RUNNER_OS}
+          GITHUB_SHA=${GITHUB_SHA}
+          GITHUB_RUN_NUMBER=${GITHUB_RUN_NUMBER}
+          EOF
+
+      - name: Generate Allure report
+        run: |
+          allure generate reports/allure-results --clean -o reports/allure-report
+
+      - name: Upload Allure report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: reports/allure-report
+
+  #    - name: Deploy report to GitHub Pages
+  #      if: github.ref == 'refs/heads/main'
+  #      uses: peaceiris/actions-gh-pages@v4
+  #      with:
+  #        github_token: ${{ secrets.GITHUB_TOKEN }}
+  #        publish_dir: ./allure-report
+  #        publish_branch: gh-pages
+  #        keep_files: true
+
+      - name: Cleanup test books
+        run: |
+          export PYTHONPATH=.
+          python utils/clean_up_test_books.py
+
+      - name: Stop json-server
+        if: always()
+        run: docker compose down

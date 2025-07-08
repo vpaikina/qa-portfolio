@@ -1,0 +1,22 @@
+services:
+  json-server:
+    image: clue/json-server
+    ports:
+      - "3000:80"
+    volumes:
+      - ./db.json:/data/db.json
+    command: -H 0.0.0.0 /data/db.json
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost/" ]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8080:8080"
+    environment:
+      SWAGGER_JSON: /swagger/swagger.json
+    volumes:
+      - ./swagger.json:/swagger/swagger.json
