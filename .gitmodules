@@ -1,0 +1,3 @@
+[submodule "projects/book-library-api-tests"]
+	path = projects/book-library-api-tests
+	url = https://github.com/vpaikina/book-library-api-tests.git
