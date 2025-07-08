@@ -20,7 +20,7 @@ Montreal, QC, Canada | paykina.vera@gmail.com | www.linkedin.com/in/vera-paykina
 **Testing activities:**    Web, UI, REST API, Microservices | Functional, Regression, Smoke, Integration, System.  
 **Automation:** 	API automation, Python, Pytest, Requests, Pydantic, Allure reports.  
 **Cloud & DevOps:**   AWS, Kubernetes, Openshift, CI/CD (GitLab CI / GitHub Actions).  
-**Databases:**	SQL (PostgreSQL | MySQL), MongoDB, Elasticsearch.  
+**DB & tools:**	SQL (PostgreSQL | MySQL), MongoDB, Elasticsearch.  
 **Testing tools:**	Postman, Swagger, devTools, Jira, Xray, Zephyr, TestRail, Confluence, Git, Kibana, Lens.  
 **Other:**  Agile (Scrum, SAFe), experienced LLM user, strong collaboration with developers and stakeholders.
 
