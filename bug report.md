@@ -45,7 +45,7 @@ Response body
   "publishDate": "0001-01-01T00:00:00"
 }
 ```
-- Automation contract tests are failing.
+- Automation contract tests are failing (see attachements).
 
 ---
 
