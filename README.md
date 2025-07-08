@@ -62,7 +62,7 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 - 📝 Written in professional format with steps to reproduce, expected vs actual result, and severity
 - 🎯 Demonstrates attention to detail and clarity in communication
 
-[📂 View Bug Report](https://github.com/vpaikina/qa-portfolio/blob/main/bug%20report.md)
+[📂 View Bug Report](https://github.com/vpaikina/qa-portfolio/blob/main/assets/sample-bug-report.md)
 
 ---
 
