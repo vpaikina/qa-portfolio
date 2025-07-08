@@ -41,19 +41,14 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 ![Allure](https://img.shields.io/badge/Allure-333333?style=for-the-badge&logo=allure&logoColor=white)
 
 ---
-
 ## 📌 Featured Projects
+### 🔹 [Book Library API Automation](./projects/book-library-api-tests/)
 
-### 🔹 [Book Library API Automation](https://github.com/vpaikina/book-library-api-tests)
-
-> ✅ Realistic CRUD test suite for a local JSON-based REST API.
-
-- 🔍 Fully automated API tests using **Python**, **Pytest**, **Pydantic**, **Faker**, and **Allure**
-- 📦 Includes **data generation**, **contract validation**, **e2e scenarios**, and **resource cleanup**
-- ⚙️ Configured with **GitHub Actions CI** and beautiful HTML reports
+- 🔥 Pytest & Requests automation for a real CRUD API (JSON Server)
+- 📦 Data-driven tests, Pydantic validation, Faker data generation, custom cleanup
+- ⚙️ Configured with **GitHub Actions CI** and beautiful **Allure reports**
 - 📘 Follows **best practices** and uses a clean, modular folder structure
-
-[➡️ View Project](https://github.com/vpaikina/book-library-api-tests)
+- [➡️ View Project »](./projects/book-library-api-tests/)
 
 ---
 
