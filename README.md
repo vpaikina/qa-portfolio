@@ -69,7 +69,7 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 
 ## 📊 Sample Allure Report
 
-Here’s an example of an Allure test reports generated from my API automation project. It provides a comprehensive overview, including a summary, individual test details, and visual insights into the results.
+Here’s an example of an Allure test reports generated from my [API automation project](https://github.com/vpaikina/book-library-api-tests). It provides a comprehensive overview, including a summary, individual test details, and visual insights into the results.
 
 [📁 Open Allure Report (index.html)](./allure-report-example/index.html)
 
