@@ -1,0 +1,11 @@
+pytest
+requests
+faker
+pydantic
+allure-pytest
+pytest-xdist
+pytest-rerunfailures
+jsonschema
+python-dotenv
+pytest-mock
+json-server

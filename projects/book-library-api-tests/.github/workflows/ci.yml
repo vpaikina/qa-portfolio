@@ -1,0 +1,22 @@
+name: API Tests CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  full-regression:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/workflow-template.yml
+    with:
+      artifact_name: allure-report-full
+      test_marker: ""
+
+  smoke-tests:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/workflow-template.yml
+    with:
+      artifact_name: allure-report-smoke
+      test_marker: "smoke"
+
