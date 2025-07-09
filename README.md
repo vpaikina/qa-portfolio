@@ -48,7 +48,7 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 - 📦 Data-driven tests, Pydantic validation, Faker data generation, custom cleanup
 - ⚙️ Configured with **GitHub Actions CI** and beautiful **Allure reports**
 - 📘 Follows **best practices** and uses a clean, modular folder structure
-- [➡️ View Project »](./projects/book-library-api-tests/)
+- [➡️ View Project](./projects/book-library-api-tests/)
 
 ---
 
