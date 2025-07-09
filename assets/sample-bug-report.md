@@ -1,7 +1,7 @@
 # Sample Bug Report
 ___
 
-### Bug: [API_Contract] API allows POST /books with empty body (expected 400, got 201).
+### Bug: [API_Contract] API allows POST /books with empty body (expected 400, got 200).
 
 | Field         | Value                                                  |
 |---------------|--------------------------------------------------------|
