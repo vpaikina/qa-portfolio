@@ -62,5 +62,5 @@ ___
 ---
 
 ####  Attachments
-- Allure Report: [Link to failed test run/report] 
+- [Allure Report](https://vpaikina.github.io/book-library-api-tests/index.html)
 
