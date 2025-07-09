@@ -1,7 +1,7 @@
 # 📚 Book Library API Automation – Overview
 ---
 
-### **Test Suites & Test Cases**
+### 🗂️ **Test Suites & Test Cases**
 
 - **The project includes four tests that automate the following scenarios:**
   - `test_book_response_contract` – Verifies API response contract with Pydantic or JSON Schema.
