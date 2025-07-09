@@ -1,5 +1,0 @@
-"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","Book API Contracts","0","Book Schema Validation","0","1","US-4: Contract enforcement for book creation","0"
-"0","Book Management","0","Book Creation Validation","5","0","US-1 System validates book payloads on POST","0"
-"0","Book API Contracts","0","Book Schema Validation","1","0","US-3 GET /books/{id} returns valid Book model","0"
-"0","Book Management","0","End-to-End CRUD Operations","1","0","US-1 User can create, read, update, and delete a book","0"

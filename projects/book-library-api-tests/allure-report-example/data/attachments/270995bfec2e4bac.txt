@@ -1,4 +1,0 @@
-[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/books
-Payload: {}
-[RESPONSE] Status: 200
-Response JSON: {'id': 0, 'title': None, 'description': None, 'pageCount': 0, 'excerpt': None, 'publishDate': '0001-01-01T00:00:00'}

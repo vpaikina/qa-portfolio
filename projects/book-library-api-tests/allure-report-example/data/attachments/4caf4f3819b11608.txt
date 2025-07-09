@@ -1,4 +1,0 @@
-[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/Books
-Payload: {'id': 6641302, 'title': '[TEST] Run tonight him.', 'description': 'Marriage father lawyer range blood find wide finally. Final here character else key.', 'pageCount': 'not-a-number', 'excerpt': 'Health would pull.', 'publishDate': '2025-07-08T22:35:28.169085'}
-[RESPONSE] Status: 400
-Response JSON: {'type': 'https://tools.ietf.org/html/rfc7231#section-6.5.1', 'title': 'One or more validation errors occurred.', 'status': 400, 'traceId': '00-956aed63552ae34bacfea556881ed7b7-2d2d29c2b5da0047-00', 'errors': {'$.pageCount': ['The JSON value could not be converted to System.Int32. Path: $.pageCount | LineNumber: 0 | BytePositionInLine: 182.']}}
