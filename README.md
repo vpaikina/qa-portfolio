@@ -52,15 +52,16 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 
 ---
 
-## 🧪 Sample Bug Report
+## 🔁 Sample CI/CD Integration
 
-- 📝 Written in professional format with steps to reproduce, expected vs actual result, and severity
-- 🎯 Demonstrates attention to detail and clarity in communication
+The project uses a **modular CI/CD setup** powered by GitHub Actions:
 
-[📂 View Bug Report](https://github.com/vpaikina/qa-portfolio/blob/main/assets/sample-bug-report.md)
+- [`ci.yml`](./projects/book-library-api-tests/.github/workflows/ci.yml) — main workflow logic: triggers smoke and full regression test runs.
+- [`workflow-template.yml`](./projects/book-library-api-tests/.github/workflows/workflow-template.yml) — reusable workflow template: contains all core setup and test execution logic, used by `ci.yml` to avoid duplication.
+
+**Every push or pull request triggers the main workflow, which calls the shared template, runs the tests, and generates Allure reports.**  
 
 ---
-
 
 ## 📊 Sample Allure Report
 
@@ -71,6 +72,15 @@ Here’s an example of an Allure test reports generated from my [API automation 
 > Tip: Right-click → "Open in new tab" for better viewing in browser.
 
 ---
+
+## 🧪 Sample Bug Report
+
+- 📝 Written in professional format with steps to reproduce, expected vs actual result, and severity
+- 🎯 Demonstrates attention to detail and clarity in communication
+
+[📂 View Bug Report](./assets/sample-bug-report.md)
+
+___
 
 ## 🧾 My Resume 
 
