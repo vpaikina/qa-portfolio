@@ -26,11 +26,12 @@ The project demonstrates QA automation proficiency in using best practices of au
 - [**tests/**](./tests) — all test cases divided by suites  
 - [**config/**](./config) — environment settings and other configs 
 - [**run_tests_with_cleanup.sh**](./run_tests_with_cleanup.sh) — universal launcher script
+- [**docs/**](./docs) — Allure report included for demonstration purposes only
 
 ## 🗂️ Test Suites
 **The project includes four tests that automate the following scenarios:**
   - `test_book_response_contract` – Verifies API response contract with Pydantic or JSON Schema.
-  - `test_post_empty_book_rejected` – Checks the API response for invalid input.
+  - `test_post_empty_book_rejected` – Checks the API response for invalid input. This test fails on validation and is intentionally included for demonstration purposes.
   - `test_book_crud_e2e` – End-to-end test covering book creation, reading, updating, and deletion.
   - `test_post_book_various_payloads` – Data-driven/parameterized test for creating multiple books.
 
