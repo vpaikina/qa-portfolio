@@ -1,0 +1,4 @@
+[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/Books
+Payload: {'id': 7537874, 'title': '[TEST] Director enter final professional into.', 'description': None, 'pageCount': 291, 'excerpt': 'Foot structure standard before star lose.', 'publishDate': '2025-07-08T22:35:28.168429'}
+[RESPONSE] Status: 200
+Response JSON: {'id': 7537874, 'title': '[TEST] Director enter final professional into.', 'description': None, 'pageCount': 291, 'excerpt': 'Foot structure standard before star lose.', 'publishDate': '2025-07-08T22:35:28.168429'}
