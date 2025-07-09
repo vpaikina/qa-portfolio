@@ -12,6 +12,8 @@ jobs:
     with:
       artifact_name: allure-report-full
       test_marker: ""
+    permissions:
+      contents: write
 
   smoke-tests:
     if: github.event_name == 'pull_request'
@@ -19,4 +21,37 @@ jobs:
     with:
       artifact_name: allure-report-smoke
       test_marker: "smoke"
+    permissions:
+      contents: write
+
+  deploy:
+    needs: full-regression
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+    steps:
+      - name: Download Allure report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report-full
+          path: reports/allure-report
+
+      - name: Upload Allure report to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports/allure-report
+
+      - name: Deploy Allure report to GitHub Pages
+        uses: actions/deploy-pages@v4
+        id: deployment
+
+      - name: Add Allure Report link to job summary
+        run: |
+          echo "## 📊 [Allure Report — click to view](https://vpaikina.github.io/book-library-api-tests/)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[![Allure Report](https://img.shields.io/badge/Allure--Report-blue?logo=allure&label=Allure%20Report)](https://vpaikina.github.io/book-library-api-tests/)" >> $GITHUB_STEP_SUMMARY
 
