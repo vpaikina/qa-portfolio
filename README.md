@@ -1,4 +1,3 @@
-# QA-portfolio
 # 🎯 Vera Paikina | Senior QA Engineer Portfolio 
 
 Welcome! I'm a Senior QA Engineer with 5+ years of experience in both manual and automated testing, specializing in REST API and web applications with microservices architecture.
