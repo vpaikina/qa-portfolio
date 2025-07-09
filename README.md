@@ -79,8 +79,9 @@ This report demonstrates a successful run of all test cases, including detailed 
 
 ## 🧪 Sample Bug Report
 
-- 📝 Written in professional format with steps to reproduce, expected vs actual result, and severity
-- 🎯 Demonstrates attention to detail and clarity in communication
+- 📝 Presented in a professional format with clear reproduction steps, expected vs actual results, and severity.
+- 🚩 This bug is **intentionally included and highlighted** in the project to demonstrate real-world API contract issues and my approach to handling, documenting, and communicating defects.
+- 🎯 Shows my attention to detail, structured analysis, and transparency in quality reporting.
 
 [📂 View Bug Report](./assets/sample-bug-report.md)
 
