@@ -1,6 +1,8 @@
 import pytest
 import allure
 import json
+
+from steps.book_steps import get_book_by_id, create_book
 from utils.api_client import APIClient
 from config.env_config import EXTERNAL_API_URL
 from schemas.book import BookResponseModel
@@ -19,16 +21,16 @@ external_api = APIClient(base_url=EXTERNAL_API_URL)
 def test_book_response_contract(api_client, existing_valid_book):
     book = existing_valid_book
     with allure.step("Fetch existing book by ID"):
-        get_resp = api_client.get(f"/books/{book.id}", expected_status=200)
+        get_resp = get_book_by_id(api_client,book.id)
         allure.attach(
             json.dumps(book.model_dump(), indent=2, default=str),
             name="Book Model",
             attachment_type=allure.attachment_type.JSON
         )
-        allure.attach(get_resp.text, name="API Response", attachment_type=allure.attachment_type.JSON)
+        allure.attach(json.dumps(get_resp, indent=2), name="API Response", attachment_type=allure.attachment_type.JSON)
 
     with allure.step("Validate book structure against Pydantic schema"):
-        BookResponseModel.model_validate(get_resp.json())
+        BookResponseModel.model_validate(get_resp)
 
 
 @allure.epic("Book API Contracts")
@@ -48,7 +50,7 @@ but the system currently creates a book with null/zero fields
 def test_post_empty_book_rejected():
     invalid_book = {}
     with allure.step("Send POST /books with empty JSON payload"):
-        post_resp = external_api.post("/books", json=invalid_book, expected_status=400)
+        post_resp = create_book(external_api,invalid_book, expected_status=400)
         allure.attach(json.dumps(invalid_book, indent=2, default=str), name="POST invalid Payload",
                       attachment_type=allure.attachment_type.JSON)
-        allure.attach(post_resp.text, name="Response Body", attachment_type=allure.attachment_type.JSON)
+        allure.attach(json.dumps(post_resp, indent=2), name="Response Body", attachment_type=allure.attachment_type.JSON)

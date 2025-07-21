@@ -1,0 +1,2 @@
+BOOKS = "/books"
+AUTHORS = "/authors"
