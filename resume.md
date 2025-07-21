@@ -5,12 +5,11 @@ Montreal, QC, Canada | paykina.vera@gmail.com | www.linkedin.com/in/vera-paykina
 ---
 
 ## Professional Summary
+🧑‍💻 ISTQB-certified QA Engineer with 5+ years of experience testing web applications at the UI, API, and microservices levels. I’ve participated in building and releasing products from the ground up, consistently driving quality throughout all stages of the SDLC, ensuring smooth production releases in Agile environments, and delivering clear testing results to stakeholders.
 
-- ISTQB certified QA with 5+ years of experience in manual and automated testing of API and WEB applications operating on a microservices architecture within AWS and Kubernetes .  
-- Proficient in API automation (Python, Pytest), CI/CD integration and Allure reporting.  
-- Delivered 75% faster automation execution time and drove 70% of QA efforts in the team, covering test design, documentation, story validation, and automated testing (per Jira metrics).  
-- Ensured smooth production releases under tight deadlines in Agile environments (Scrum, SAFe) and delivered clear, actionable testing results to stakeholders.  
-- Provided mentorship to newcomers and contributed to process improvements by optimizing QA workflows.
+🚀 API automation specialist, skilled in developing robust frameworks that improve product reliability using Python and Pytest. I’ve successfully reduced automation execution time by 75%, integrated test suites into CI/CD pipelines (GitHub Actions), and implemented comprehensive Allure reporting.
+
+🤝 QA process enthusiast and team player, actively contributing to workflow optimization. I’ve been involved in the hiring process and provided mentorship and onboarding support to new QA engineers.
 
 ---
 
