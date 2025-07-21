@@ -79,7 +79,7 @@ Large-scale legacy web application managing product catalogs (tariffs, devices) 
 
 ## Education
 
-Engineer, Master degree diploma with distinction  
+Engineer, Master's degree diploma with distinction  
 Petrozavodsk State University (PetrSU), Russia, Petrozavodsk — 2009-2014
 
 ---
