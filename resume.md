@@ -50,7 +50,7 @@ T-Mobile Germany (Deutsche Telekom IT Solutions), Saint Petersburg, Russia, Hybr
 - Validated backend data integrity in PostgreSQL, MongoDB and ElasticSearch
 - Supported stable production releases within Agile workflows and provided transparent testing results
 - Designed tests documentation (test cases, checklists) based on formal testing techniques and methodologies
-- Performed root cause analysis by reviewing logs and Kafka events using tools such as Kibana and Lens
+- Performed the root cause analysis, debugging, and reviewed logs and Kafka events using Kibana/Lens tools
 - Handled peer reviews and QA assets (bugs, test cases, documentation) using Jira, Zephyr, and Confluence.
 - Participated in Agile (Scrum, SAFe) ceremonies, QA reporting, and communication with stakeholders
 - Collaborated closely with the development team throughout the entire SDLC.
