@@ -44,16 +44,16 @@ T-Mobile Germany (Deutsche Telekom IT Solutions), Saint Petersburg, Russia, Hybr
 
 #### Key Responsibilities:
 - Conducted manual testing (UI & API, functional, regression, integration, system, e2e, microservices) of web apps
-- Built and maintained REST API automation tests using Python, Pytest, Requests, Postman and Swagger
+- Built and maintained REST API automation tests using Python, Pytest, Requests, Postman and Swagger 
 - Managed Allure reporting and CI/CD pipelines via GitLab CI/Github Actions
+- Verified structured data (JSON, XML) and responses based on defined schemas
 - Validated backend data integrity in PostgreSQL, MongoDB and ElasticSearch
 - Supported stable production releases within Agile workflows and provided transparent testing results
 - Designed tests documentation (test cases, checklists) based on formal testing techniques and methodologies
-- Peer reviews and QA asset management (bugs, test cases, documentation) using Jira, Zephyr, and Confluence
-- Performed root cause analysis by reviewing logs and Kafka events using tools such as Kibana and Lens 
-- Structured data validation (JSON, XML) and response verification based on defined schemas
-- Active participation in Agile (Scrum, SAFe) ceremonies, QA reporting, and communication with stakeholders
-- Continuous and close collaboration with the development team throughout the entire SDLC
+- Performed root cause analysis by reviewing logs and Kafka events using tools such as Kibana and Lens
+- Handled peer reviews and QA assets (bugs, test cases, documentation) using Jira, Zephyr, and Confluence.
+- Participated in Agile (Scrum, SAFe) ceremonies, QA reporting, and communication with stakeholders
+- Collaborated closely with the development team throughout the entire SDLC.
 
 ---
 
