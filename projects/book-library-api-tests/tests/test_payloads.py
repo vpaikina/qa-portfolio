@@ -28,10 +28,11 @@ external_api = APIClient(base_url=EXTERNAL_API_URL)
 ])
 def test_post_book_various_payloads(book_payload, expected_status):
     with allure.step(f"POST /Books with payload expecting {expected_status}"):
-        response = external_api.post("/Books", json=book_payload, expected_status=expected_status)
+        post_response = external_api.post("/Books", json=book_payload, expected_status=expected_status)
         allure.attach(
             json.dumps(book_payload, indent=2),
             name="Sent Payload",
             attachment_type=allure.attachment_type.JSON)
-        allure.attach(response.text, name="Response", attachment_type=allure.attachment_type.JSON)
-        assert response.status_code == expected_status, f"Unexpected response: {response.text}"
+        allure.attach(post_response.text, name="Response", attachment_type=allure.attachment_type.JSON)
+        assert post_response.status_code == expected_status, f"Unexpected response: {response.text}"
+

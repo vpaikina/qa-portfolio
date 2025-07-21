@@ -21,7 +21,8 @@ The project demonstrates QA automation proficiency in using best practices of au
 ## 📁 Project Structure
 
 - [**data/**](./data) — payload generators  
-- [**utils/**](./utils) — API client, resource tracker, cleanup scripts  
+- [**steps/**](./steps) — contains readable, reusable step functions (DSL) for CRUD and validation operations, used in tests to improve clarity and maintainability.
+- [**utils/**](./utils) — API client, resource tracker, cleanup scripts and endpoints 
 - [**schemas/**](./schemas) — Pydantic models for response validation  
 - [**tests/**](./tests) — all test cases divided by suites  
 - [**config/**](./config) — environment settings and other configs 

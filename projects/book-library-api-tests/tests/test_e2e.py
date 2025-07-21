@@ -2,6 +2,7 @@ import pytest
 import allure
 import json
 from data.book_payloads import valid_book
+from steps.book_steps import create_book, get_book_by_id, update_book, delete_book
 from utils.resource_tracker import tracked_client
 
 # ---- check E2E scenario ----
@@ -19,40 +20,37 @@ creation, retrieval, update, and deletion.
 def test_book_crud_e2e(api_client):
     book = valid_book()
     with tracked_client(api_client) as (client, tracker):
-        with allure.step("Create a book"):
-            post_resp = client.post("/books", json=book, expected_status=201)
-            post_data = post_resp.json()
+        with allure.step("Create book"):
+            book_id, post_data = create_book(client, book, tracker=tracker)
             allure.attach(json.dumps(book, indent=2), name="POST Payload",
                           attachment_type=allure.attachment_type.JSON)
-            allure.attach(post_resp.text, name="Response Body", attachment_type=allure.attachment_type.JSON)
-            assert "id" in post_data, f"No 'id' field found in {post_data}"
-            book_id = post_data["id"]
-
-        with allure.step("Read the created book by id"):
-            get_resp = client.get(f"/books/{book_id}", expected_status=200)
-            data = get_resp.json()
-            allure.attach(get_resp.text, name="Fetched Book", attachment_type=allure.attachment_type.JSON)
-            assert data.get("title") == book["title"], f"Title mismatch"
-            assert data.get("pageCount") == book["pageCount"], f"Page count mismatch"
-
-        with allure.step("Update the book via PUT"):
-            updated_data = {**book, "description": "Updated Desc"}
-            put_resp = client.put(f"/books/{book_id}", json=updated_data, expected_status=200)
-            put_data = put_resp.json()
-            allure.attach(json.dumps(updated_data, indent=2), name="PUT payload",
+            allure.attach(json.dumps(post_data, indent=2), name="Response Body",
                           attachment_type=allure.attachment_type.JSON)
-            allure.attach(put_resp.text, name="Updated Response", attachment_type=allure.attachment_type.JSON)
-            assert put_data.get("description") == "Updated Desc"
-            assert put_data.get("id") == book_id
 
-        with allure.step("Confirm update via GET by id"):
-            get_updated = client.get(f"/books/{book_id}", expected_status=200)
-            get_data = get_updated.json()
-            allure.attach(json.dumps(get_data, indent=2), name="Updated Book",
+        with allure.step("Get created book by id"):
+            fetched_book = get_book_by_id(client, book_id)
+            allure.attach(json.dumps(fetched_book, indent=2), name="Fetched Book",
                           attachment_type=allure.attachment_type.JSON)
-            assert get_data.get("description") == "Updated Desc"
+            assert fetched_book.get("title") == book["title"], "Title mismatch"
+            assert fetched_book.get("pageCount") == book["pageCount"], "Page count mismatch"
+
+        with allure.step("Update book"):
+            update_payload = {**book, "description": "Updated Desc"}
+            put_response = update_book(client, book_id, update_payload)
+            allure.attach(json.dumps(update_payload, indent=2), name="PUT payload",
+                          attachment_type=allure.attachment_type.JSON)
+            allure.attach(json.dumps(put_response, indent=2), name="Updated Response",
+                          attachment_type=allure.attachment_type.JSON)
+            assert put_response.get("description") == "Updated Desc"
+            assert put_response.get("id") == book_id
+
+        with allure.step("Get updated book"):
+            get_updated = get_book_by_id(client, book_id)
+            allure.attach(json.dumps(get_updated, indent=2), name="Updated Book",
+                          attachment_type=allure.attachment_type.JSON)
+            assert get_updated.get("description") == "Updated Desc"
 
         with allure.step("Delete the book and validate it is gone"):
-            del_resp = client.delete(f"/books/{book_id}", expected_status=200)
-            allure.attach(del_resp.text, "Delete Response", allure.attachment_type.JSON)
-            client.get(f"/books/{book_id}", expected_status=404)
+            delete_resp = delete_book(client, book_id, tracker=tracker)
+            allure.attach(delete_resp.text, "Delete Response", allure.attachment_type.JSON)
+            get_book_by_id(client, book_id, expected_status=404)
