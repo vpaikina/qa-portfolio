@@ -88,7 +88,7 @@ ___
 
 ## 🧾 My Resume 
 
-- ✅ ISTQB Certified | 5+ years QA experience in Web testing| API Automation | Hands-on with Python, Pytest, REST API, microservises, Allure, CI/CD.
+- ✅ ISTQB Certified | 5+ years QA experience in Web testing| API Automation | Hands-on with Python, Pytest, REST API, Microservices, Allure, CI/CD.
 
 [📄 View Resume](https://github.com/vpaikina/qa-portfolio/blob/main/resume.md)
 
