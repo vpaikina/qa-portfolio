@@ -2,10 +2,11 @@ import pytest
 import allure
 import json
 
-from steps.book_steps import get_book_by_id, create_book
+from steps.book_steps import get_book_by_id, create_book, assert_book_contract
 from utils.api_client import APIClient
 from config.env_config import EXTERNAL_API_URL
 from schemas.book import BookResponseModel
+from utils.endpoints import BOOKS_ENDP
 
 external_api = APIClient(base_url=EXTERNAL_API_URL)
 
@@ -20,17 +21,9 @@ external_api = APIClient(base_url=EXTERNAL_API_URL)
 @pytest.mark.smoke
 def test_book_response_contract(api_client, existing_valid_book):
     book = existing_valid_book
-    with allure.step("Fetch existing book by ID"):
-        get_resp = get_book_by_id(api_client,book.id)
-        allure.attach(
-            json.dumps(book.model_dump(), indent=2, default=str),
-            name="Book Model",
-            attachment_type=allure.attachment_type.JSON
-        )
-        allure.attach(json.dumps(get_resp, indent=2), name="API Response", attachment_type=allure.attachment_type.JSON)
-
+    get_resp = get_book_by_id(api_client, book.id)
     with allure.step("Validate book structure against Pydantic schema"):
-        BookResponseModel.model_validate(get_resp)
+        assert_book_contract(get_resp, f"GET {BOOKS_ENDP}/{book.id}")
 
 
 @allure.epic("Book API Contracts")
@@ -49,8 +42,5 @@ but the system currently creates a book with null/zero fields
 @pytest.mark.contract
 def test_post_empty_book_rejected():
     invalid_book = {}
-    with allure.step("Send POST /books with empty JSON payload"):
-        post_resp = create_book(external_api,invalid_book, expected_status=400)
-        allure.attach(json.dumps(invalid_book, indent=2, default=str), name="POST invalid Payload",
-                      attachment_type=allure.attachment_type.JSON)
-        allure.attach(json.dumps(post_resp, indent=2), name="Response Body", attachment_type=allure.attachment_type.JSON)
+    create_book(external_api, invalid_book, expected_status=400)
+

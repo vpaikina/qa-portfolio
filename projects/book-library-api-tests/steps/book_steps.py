@@ -1,59 +1,60 @@
+import allure
+
+from schemas.book import BookResponseModel
+from utils.assertions import assert_status_code, assert_has_field, assert_valid_json, assert_response_by_schema
 from utils.resource_tracker import ResourceTracker
-from utils.endpoints import BOOKS
+from utils.endpoints import BOOKS_ENDP
+import json
 
 
-def assert_status_code(response, expected_status, error_prefix="", payload=None):
-    if response.status_code != expected_status:
-        msg = f"{error_prefix}: expected {expected_status}, got {response.status_code}\n"
-        if payload is not None:
-            msg += f"Payload: {payload}\n"
-        msg += f"Response: {response.text}"
-        raise AssertionError(msg)
-
-
-def safe_json(response, error_prefix=""):
-    try:
-        return response.json()
-    except Exception as e:
-        raise AssertionError(
-            f"{error_prefix}: invalid JSON in response.\n"
-            f"Status: {response.status_code}\n"
-            f"Response: {getattr(response, 'text', '')}"
-        ) from e
+def get_response_json(response, context: str = ""):
+    with allure.step(f"Parse response JSON [{context}]"):
+        data = assert_valid_json(response, context=context)
+        allure.attach(json.dumps(data, indent=2), "Parsed JSON", allure.attachment_type.JSON)
+        return data
 
 
 def create_book(client, payload, tracker: ResourceTracker = None, expected_status=201):
-    response = client.post(BOOKS, json=payload, expected_status=expected_status)
-    assert_status_code(response, expected_status, error_prefix="POST {BOOKS}", payload=payload)
-    data = safe_json(response, error_prefix="POST {BOOKS}")
-    try:
+    with allure.step("Create book"):
+        response = client.post(BOOKS_ENDP, json=payload, expected_status=expected_status)
+        allure.attach(json.dumps(payload, indent=2), "POST Payload", allure.attachment_type.JSON)
+        allure.attach(response.text, "POST Response", allure.attachment_type.JSON)
+        assert_status_code(response, expected_status, context=f"POST {BOOKS_ENDP}", payload=payload)
+        data = get_response_json(response, context=f"POST {BOOKS_ENDP}")
+        assert_has_field(data, "id", context=f"POST {BOOKS_ENDP}")
         book_id = data["id"]
-    except (KeyError, ValueError, TypeError) as e:
-        raise AssertionError(
-            f"POST /books: missing or invalid 'id' in response.\n"
-            f"Response: {data}"
-        ) from e
-    if tracker:
-        tracker.track_create(book_id)
-    return book_id, data
+        if tracker:
+            tracker.track_create(book_id)
+        return book_id, response
 
 
 def get_book_by_id(client, book_id, expected_status=200):
-    response = client.get(f"{BOOKS}/{book_id}", expected_status=expected_status)
-    assert_status_code(response, expected_status, error_prefix=f"GET {BOOKS}/{book_id}")
-    return safe_json(response, error_prefix=f"GET {BOOKS}/{book_id}")
+    with allure.step(f"Get book by id={book_id}"):
+        response = client.get(f"{BOOKS_ENDP}/{book_id}", expected_status=expected_status)
+        allure.attach(response.text, "GET Response", allure.attachment_type.JSON)
+        assert_status_code(response, expected_status, context=f"GET {BOOKS_ENDP}/{book_id}")
+        return get_response_json(response, context=f"GET {BOOKS_ENDP}/{book_id}")
 
 
 def update_book(client, book_id, updated_data, expected_status=200):
-    response = client.put(f"{BOOKS}/{book_id}", json=updated_data, expected_status=expected_status)
-    assert_status_code(response, expected_status, error_prefix=f"PUT {BOOKS}/{book_id}", payload=updated_data)
-    return safe_json(response, error_prefix=f"PUT {BOOKS}/{book_id}")
+    with allure.step(f"Update book id={book_id}"):
+        response = client.put(f"{BOOKS_ENDP}/{book_id}", json=updated_data, expected_status=expected_status)
+        allure.attach(json.dumps(updated_data, indent=2), "PUT Payload", allure.attachment_type.JSON)
+        allure.attach(response.text, "PUT Response", allure.attachment_type.JSON)
+        assert_status_code(response, expected_status, context=f"PUT {BOOKS_ENDP}/{book_id}", payload=updated_data)
+        return get_response_json(response, context=f"PUT {BOOKS_ENDP}/{book_id}")
 
 
 def delete_book(client, book_id, tracker: ResourceTracker = None, expected_status=200):
-    response = client.delete(f"{BOOKS}/{book_id}", expected_status=expected_status)
-    if response.status_code not in [expected_status, 404]:
-        assert_status_code(response, expected_status, error_prefix=f"DELETE {BOOKS}/{book_id}")
-    if tracker:
-        tracker.track_delete(book_id)
-    return response
+    with allure.step(f"Delete book by id={book_id}"):
+        response = client.delete(f"{BOOKS_ENDP}/{book_id}", expected_status=expected_status)
+        allure.attach(response.text, "DELETE Response", allure.attachment_type.JSON)
+        if response.status_code not in [expected_status, 404]:
+            assert_status_code(response, expected_status, context=f"DELETE {BOOKS_ENDP}/{book_id}")
+        if tracker:
+            tracker.track_delete(book_id)
+        return response
+
+
+def assert_book_contract(response_json, context: str = ""):
+    assert_response_by_schema(response_json, BookResponseModel, context)

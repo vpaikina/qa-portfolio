@@ -10,6 +10,9 @@ from data.book_payloads import (
 )
 from utils.api_client import APIClient
 from config.env_config import EXTERNAL_API_URL
+from utils.assertions import assert_status_code
+from utils.endpoints import BOOKS_ENDP
+
 external_api = APIClient(base_url=EXTERNAL_API_URL)
 
 
@@ -27,12 +30,6 @@ external_api = APIClient(base_url=EXTERNAL_API_URL)
     pytest.param(book_with_non_integer_pageCount(), 400, id="invalid_pageCount")
 ])
 def test_post_book_various_payloads(book_payload, expected_status):
-    with allure.step(f"POST /Books with payload expecting {expected_status}"):
-        post_response = external_api.post("/Books", json=book_payload, expected_status=expected_status)
-        allure.attach(
-            json.dumps(book_payload, indent=2),
-            name="Sent Payload",
-            attachment_type=allure.attachment_type.JSON)
-        allure.attach(post_response.text, name="Response", attachment_type=allure.attachment_type.JSON)
-        assert post_response.status_code == expected_status, f"Unexpected response: {response.text}"
+    post_response = external_api.post(BOOKS_ENDP, json=book_payload, expected_status=expected_status)
+    assert_status_code(post_response, expected_status, context=f"POST {BOOKS_ENDP}")
 

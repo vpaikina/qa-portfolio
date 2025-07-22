@@ -1,2 +1,2 @@
-BOOKS = "/books"
+BOOKS_ENDP = "/books"
 AUTHORS = "/authors"
