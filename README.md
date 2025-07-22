@@ -44,7 +44,7 @@ This portfolio demonstrate my hands-on skills in test automation, bug analysis, 
 ### 🔹 [Book Library API Automation](./projects/book-library-api-tests/)
 
 - 🔥 Pytest & Requests automation for a real CRUD API (JSON Server)
-- 📦 Data-driven tests, Pydantic validation, Faker data generation, custom cleanup
+- 📦 Data-driven tests, Pydantic validation, Faker data generation, custom assertions and cleanup
 - ⚙️ Configured with **GitHub Actions CI** and beautiful **Allure reports**
 - 📘 Follows **best practices** and uses a clean, modular folder structure
 - [➡️ View Project](./projects/book-library-api-tests/)
