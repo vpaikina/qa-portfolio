@@ -17,6 +17,7 @@ venv.bak/
 
 # Allure reports
 reports/allure-*
+tests/reports/
 
 # Pytest cache
 .pytest_cache/
