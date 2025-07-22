@@ -71,7 +71,7 @@ A customer-facing web platform offering Telekom product catalogs (microservices,
 Middle QA Engineer  
 Internal web tool enabling project management to configure and validate telecom product offerings
 
-**Project: Telekom Catalog** - 08/2017–01/2018 | On-site | Full-time                                         
+**Project: Teleсom Catalog** - 08/2017–01/2018 | On-site | Full-time                                         
 Junior QA Engineer  
 Large-scale legacy web application managing product catalogs (tariffs, devices) for Deutsche Telekom customers.
 
