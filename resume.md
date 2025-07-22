@@ -52,7 +52,7 @@ T-Mobile Germany (Deutsche Telekom IT Solutions), Saint Petersburg, Russia, Hybr
 - Designed tests documentation (test cases, checklists) based on formal testing techniques and methodologies
 - Performed the root cause analysis, debugging, and reviewed logs and Kafka events using Kibana/Lens tools
 - Handled peer reviews and QA assets (bugs, test cases, documentation) using Jira, Zephyr, and Confluence.
-- Participated in Agile (Scrum, SAFe) ceremonies, QA reporting, and communication with stakeholders
+- Participated in Agile (Scrum, SAFe) ceremonies, provided QA reporting, and communicated with stakeholders
 - Collaborated closely with the development team throughout the entire SDLC.
 
 ---
