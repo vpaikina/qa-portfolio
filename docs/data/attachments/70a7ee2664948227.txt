@@ -1,0 +1,4 @@
+[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/books
+Payload: {'id': 1580309, 'title': '[TEST] Social public partner four key.', 'description': '', 'pageCount': 167, 'excerpt': 'Office better people policy blood natural carry.', 'publishDate': '2025-07-23T10:45:24.232958'}
+[RESPONSE] Status: 200
+Response JSON: {'id': 1580309, 'title': '[TEST] Social public partner four key.', 'description': '', 'pageCount': 167, 'excerpt': 'Office better people policy blood natural carry.', 'publishDate': '2025-07-23T10:45:24.232958'}

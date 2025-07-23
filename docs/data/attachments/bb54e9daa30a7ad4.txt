@@ -1,0 +1,4 @@
+[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/books
+Payload: {'id': 3235027, 'title': '[TEST] Sister test.', 'description': None, 'pageCount': 57, 'excerpt': 'Economic event smile pay education out.', 'publishDate': '2025-07-23T10:45:24.232700'}
+[RESPONSE] Status: 200
+Response JSON: {'id': 3235027, 'title': '[TEST] Sister test.', 'description': None, 'pageCount': 57, 'excerpt': 'Economic event smile pay education out.', 'publishDate': '2025-07-23T10:45:24.2327'}

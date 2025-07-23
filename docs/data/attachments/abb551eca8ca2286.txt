@@ -1,0 +1,10 @@
+[REQUEST] POST http://localhost:3000/books
+Payload: {'id': 7500809, 'title': '[TEST] Produce part.', 'description': 'Great open get chance. Drug list necessary scientist star beat eight today.', 'pageCount': 15, 'excerpt': 'Hold oil action trouble.', 'publishDate': '2025-07-23T10:45:24.243850'}
+[RESPONSE] Status: 201
+Response JSON: {'id': 7500809, 'title': '[TEST] Produce part.', 'description': 'Great open get chance. Drug list necessary scientist star beat eight today.', 'pageCount': 15, 'excerpt': 'Hold oil action trouble.', 'publishDate': '2025-07-23T10:45:24.243850'}
+[REQUEST] GET http://localhost:3000/books/7500809
+[RESPONSE] Status: 200
+Response JSON: {'id': 7500809, 'title': '[TEST] Produce part.', 'description': 'Great open get chance. Drug list necessary scientist star beat eight today.', 'pageCount': 15, 'excerpt': 'Hold oil action trouble.', 'publishDate': '2025-07-23T10:45:24.243850'}
+[REQUEST] DELETE http://localhost:3000/books/7500809
+[RESPONSE] Status: 200
+Response JSON: {}

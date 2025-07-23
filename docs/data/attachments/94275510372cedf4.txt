@@ -1,0 +1,4 @@
+[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/books
+Payload: {'id': 8527798, 'title': '[TEST] Daughter nation huge day.', 'description': 'Huge cup both cut hotel century. Spring from inside.', 'pageCount': 339, 'excerpt': 'Easy hair together sister.', 'publishDate': '2025-07-23T10:45:24.232189'}
+[RESPONSE] Status: 200
+Response JSON: {'id': 8527798, 'title': '[TEST] Daughter nation huge day.', 'description': 'Huge cup both cut hotel century. Spring from inside.', 'pageCount': 339, 'excerpt': 'Easy hair together sister.', 'publishDate': '2025-07-23T10:45:24.232189'}

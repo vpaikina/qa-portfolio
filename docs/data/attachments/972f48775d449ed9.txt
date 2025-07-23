@@ -1,0 +1,4 @@
+[REQUEST] POST https://fakerestapi.azurewebsites.net/api/v1/books
+Payload: {'id': 7701573, 'title': '[TEST] Hospital special care.', 'description': 'Focus dog chair reality mother authority. Join themselves morning language party common.', 'pageCount': 'not-a-number', 'excerpt': 'Throughout customer pretty often social.', 'publishDate': '2025-07-23T10:45:24.233282'}
+[RESPONSE] Status: 400
+Response JSON: {'type': 'https://tools.ietf.org/html/rfc7231#section-6.5.1', 'title': 'One or more validation errors occurred.', 'status': 400, 'traceId': '00-a8e10c5bbecde340b9eeccb77d198e55-16c27addc6327645-00', 'errors': {'$.pageCount': ['The JSON value could not be converted to System.Int32. Path: $.pageCount | LineNumber: 0 | BytePositionInLine: 192.']}}
