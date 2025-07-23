@@ -1,5 +1,5 @@
 import requests
-from config.env_config import EXTERNAL_API_URL, BASE_URL
+from config.env_config import BASE_URL
 
 
 class APIClient:
@@ -29,12 +29,12 @@ class APIClient:
             print(f"Response Text: {response.text}")
 
     def request(
-            self,
-            method: str,
-            endpoint: str,
-            expected_status: int = 200,
-            error_message: str = None,
-            **kwargs
+        self,
+        method: str,
+        endpoint: str,
+        expected_status: int = 200,
+        error_message: str = None,
+        **kwargs,
     ) -> requests.Response:
         url = self._build_url(endpoint)
         self._log_request(method, url, **kwargs)

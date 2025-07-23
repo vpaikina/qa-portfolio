@@ -4,9 +4,11 @@ from data.book_payloads import valid_book
 from schemas.book import BookResponseModel
 from utils.resource_tracker import tracked_client
 
+
 @pytest.fixture(scope="function")
 def api_client() -> APIClient:
     return APIClient()
+
 
 @pytest.fixture
 def existing_valid_book(api_client):

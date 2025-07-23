@@ -9,3 +9,7 @@ jsonschema
 python-dotenv
 pytest-mock
 json-server
+flake8>=6.0.0
+pre-commit
+black
+ruff

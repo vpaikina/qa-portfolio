@@ -12,7 +12,9 @@ class BookGenerator:
     Allows overriding default field values.
     """
 
-    def generate_book(self, overrides: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def generate_book(
+        self, overrides: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """
         Generate a single fake book object
         overrides: Optional dict to override generated fields
@@ -23,7 +25,7 @@ class BookGenerator:
             "description": fake.text(max_nb_chars=100),
             "pageCount": fake.random_int(min=1, max=500),
             "excerpt": fake.text(max_nb_chars=50),
-            "publishDate": datetime.now().isoformat()
+            "publishDate": datetime.now().isoformat(),
         }
 
         if overrides:
@@ -31,7 +33,9 @@ class BookGenerator:
 
         return data
 
-    def generate_books(self, count: int, overrides: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    def generate_books(
+        self, count: int, overrides: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, Any]]:
         """
         Generate multiple fake book objects
         count: Number of books to generate.

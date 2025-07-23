@@ -36,6 +36,22 @@ The project demonstrates QA automation proficiency in using best practices of au
   - `test_book_crud_e2e` – End-to-end test covering book creation, reading, updating, and deletion.
   - `test_post_book_various_payloads` – Data-driven/parameterized test for creating multiple books.
 
+### 🧹 Code Style & Linting
+
+We use [Flake8](https://flake8.pycqa.org/) for code style and linting.  
+
+- **Black** and **Ruff** are enforced via [pre-commit](https://pre-commit.com/).  
+- All code is automatically formatted (Black) and linted (Ruff) before commit and in CI.  
+- To activate locally, run:
+
+```bash
+pip install pre-commit black ruff flake8
+pre-commit install 
+flake8 .
+black .
+ruff check . --fix
+```
+
 ## 📘 How to Use 
 
 ### 1. **Setup**

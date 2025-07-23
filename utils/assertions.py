@@ -23,6 +23,7 @@ def assert_equals(actual, expected, field: str, context: str = ""):
             f"[{context}] Field '{field}': expected {expected}, got {actual}"
         )
 
+
 def assert_valid_json(response, context: str = ""):
     try:
         return response.json()
@@ -32,6 +33,7 @@ def assert_valid_json(response, context: str = ""):
             f"Status: {getattr(response, 'status_code', None)}\n"
             f"Response text: {getattr(response, 'text', '')}"
         ) from e
+
 
 def assert_response_by_schema(response_json, schema_model, context: str = ""):
     try:
