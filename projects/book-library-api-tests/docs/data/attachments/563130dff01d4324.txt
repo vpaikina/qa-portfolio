@@ -1,0 +1,20 @@
+[REQUEST] POST http://localhost:3000/books
+Payload: {'id': 5464643, 'title': '[TEST] Sea step bag.', 'description': 'Road speech say. Necessary five also account foreign. Plan you third protect leg very collection.', 'pageCount': 189, 'excerpt': 'Campaign sport star really can develop laugh.', 'publishDate': '2025-07-23T10:45:25.098039'}
+[RESPONSE] Status: 201
+Response JSON: {'id': 5464643, 'title': '[TEST] Sea step bag.', 'description': 'Road speech say. Necessary five also account foreign. Plan you third protect leg very collection.', 'pageCount': 189, 'excerpt': 'Campaign sport star really can develop laugh.', 'publishDate': '2025-07-23T10:45:25.098039'}
+[REQUEST] GET http://localhost:3000/books/5464643
+[RESPONSE] Status: 200
+Response JSON: {'id': 5464643, 'title': '[TEST] Sea step bag.', 'description': 'Road speech say. Necessary five also account foreign. Plan you third protect leg very collection.', 'pageCount': 189, 'excerpt': 'Campaign sport star really can develop laugh.', 'publishDate': '2025-07-23T10:45:25.098039'}
+[REQUEST] PUT http://localhost:3000/books/5464643
+Payload: {'id': 5464643, 'title': '[TEST] Sea step bag.', 'description': 'Updated Desc', 'pageCount': 189, 'excerpt': 'Campaign sport star really can develop laugh.', 'publishDate': '2025-07-23T10:45:25.098039'}
+[RESPONSE] Status: 200
+Response JSON: {'id': 5464643, 'title': '[TEST] Sea step bag.', 'description': 'Updated Desc', 'pageCount': 189, 'excerpt': 'Campaign sport star really can develop laugh.', 'publishDate': '2025-07-23T10:45:25.098039'}
+[REQUEST] GET http://localhost:3000/books/5464643
+[RESPONSE] Status: 200
+Response JSON: {'id': 5464643, 'title': '[TEST] Sea step bag.', 'description': 'Updated Desc', 'pageCount': 189, 'excerpt': 'Campaign sport star really can develop laugh.', 'publishDate': '2025-07-23T10:45:25.098039'}
+[REQUEST] DELETE http://localhost:3000/books/5464643
+[RESPONSE] Status: 200
+Response JSON: {}
+[REQUEST] GET http://localhost:3000/books/5464643
+[RESPONSE] Status: 404
+Response JSON: {}
