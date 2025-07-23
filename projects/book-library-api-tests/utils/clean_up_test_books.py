@@ -1,6 +1,6 @@
 import requests
-import os
 from config.env_config import BASE_URL
+
 
 def main():
     session = requests.Session()
@@ -19,9 +19,12 @@ def main():
                 print(f"Deleted test book id={book_id}")
                 deleted += 1
             else:
-                print(f"WARNING: Could not delete book {book_id}: {del_resp.status_code} {del_resp.text}")
+                print(
+                    f"WARNING: Could not delete book {book_id}: {del_resp.status_code} {del_resp.text}"
+                )
 
     print(f"Total deleted: {deleted}")
+
 
 if __name__ == "__main__":
     main()

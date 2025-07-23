@@ -2,6 +2,7 @@ from pydantic import BaseModel, StrictStr, StrictInt, Field
 from typing import Optional
 from datetime import datetime
 
+
 class BookResponseModel(BaseModel):
     id: StrictInt
     title: StrictStr

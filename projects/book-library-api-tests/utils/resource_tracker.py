@@ -1,5 +1,6 @@
 from contextlib import contextmanager
 
+
 class ResourceTracker:
     """
     Tracks creation and deletion of resources.
@@ -22,17 +23,26 @@ class ResourceTracker:
             try:
                 resp = self.delete_func(resource_id)
                 # Only log warning if not OK or NotFound
-                if hasattr(resp, "status_code") and resp.status_code not in (200, 204, 404):
-                    print(f"Warning: unexpected status code on cleanup DELETE {resource_id}: {resp.status_code}")
+                if hasattr(resp, "status_code") and resp.status_code not in (
+                    200,
+                    204,
+                    404,
+                ):
+                    print(
+                        f"Warning: unexpected status code on cleanup DELETE {resource_id}: {resp.status_code}"
+                    )
             except Exception as e:
                 print(f"Warning: could not delete resource {resource_id}: {e}")
+
 
 @contextmanager
 def tracked_client(api_client, resource_name="books"):
     """
     Wraps api_client to automatically track created and deleted resources.
     """
-    tracker = ResourceTracker(lambda rid: api_client.delete(f"/{resource_name}/{rid}", expected_status=200))
+    tracker = ResourceTracker(
+        lambda rid: api_client.delete(f"/{resource_name}/{rid}", expected_status=200)
+    )
     original_post = api_client.post
     original_delete = api_client.delete
 
@@ -49,7 +59,9 @@ def tracked_client(api_client, resource_name="books"):
     def tracked_delete(endpoint, **kwargs):
         if endpoint.startswith(f"/{resource_name}/"):
             resource_id = endpoint.split("/")[-1]
-            tracker.track_delete(int(resource_id) if resource_id.isdigit() else resource_id)
+            tracker.track_delete(
+                int(resource_id) if resource_id.isdigit() else resource_id
+            )
         return original_delete(endpoint, **kwargs)
 
     api_client.post = tracked_post
