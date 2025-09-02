@@ -38,8 +38,8 @@ T-Mobile Germany (Deutsche Telekom IT Solutions), Saint Petersburg, Russia, Hybr
 - Facilitated around 10 technical interviews to help hire a new QA team member.
 - Mentored newcomers, providing onboarding and guidance on project and testing practices.
 - Solely provided full QA support for a team of 6 developers, consistently meeting deadlines.
+- Automated UI test scenarios (Selenium + Java) for complex features, which helped uncover business-critical bugs
 - Led an internal workshop on using the application, increasing awareness and understanding of the platform
-- Completed internal training in UI automation (Selenium + Java) and automated UI scenarios for complex features
 - Successfully passed ISTQB Foundation level certification.
 
 #### Key Responsibilities:
